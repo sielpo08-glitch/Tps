@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <style>
-    table, th, td {
+    table,
+    th,
+    td {
       border: 1px solid black;
       border-collapse: collapse;
       margin-top: 20px;
     }
-    th, td {
+
+    th,
+    td {
       padding: 8px;
     }
   </style>
@@ -17,19 +22,76 @@
       var cognome = document.getElementById("cognome").value;
       var indirizzo = document.getElementById("indirizzo").value;
       var citta = document.getElementById("citta").value;
+      var sesso = document.getElementById("sesso").value;
+      var diplomi = document.getElementById("diplomi").value;
+      var provincia = document.getElementById("provincia").value;
+      var sport = document.getElementById("sport").value;
+
 
       var risultato = "<p>" + nome + " " + cognome + ", " + indirizzo + ", " + citta + "</p>";
       document.getElementById("dest").innerHTML = risultato;
     }
   </script>
 </head>
+
 <body bgcolor="white">
   <input type="text" id="nome" placeholder="Nome"><br>
   <input type="text" id="cognome" placeholder="Cognome"><br>
   <input type="text" id="indirizzo" placeholder="Indirizzo"><br>
   <input type="text" id="citta" placeholder="Città"><br>
+  <input type="radio" id="sesso" placeholder="Sesso"><br>
+  <input type="checkbox" id="diplomi" placeholder="Diplomi Posseduti"><br>
+  <select name="provincia" id="provincia">
+    <option value="AQ">AQ</option>
+    <option value="PZ">PZ</option>
+    <option value="MT">MT</option>
+    <option value="CZ">CZ</option>
+    <option value="SA">SA</option>
+    <option value="AV">AV</option>
+    <option value="MO">MO</option>
+    <option value="UD">UD</option>
+    <option value="FR">FR</option>
+    <option value="GE">GE</option>
+    <option value="MI">MI</option>
+    <option value="BG">BG</option>
+    <option value="AN">AN</option>
+    <option value="CB">CB</option>
+    <option value="TO">TO</option>
+    <option value="AL">AL</option>
+    <option value="LE">LE</option>
+    <option value="FG">FG</option>
+    <option value="SS">SS</option>
+    <option value="PA">PA</option>
+    <option value="CT">CT</option>
+  </select>
+
+  <select name="sport" id="sport">
+    <option value="calcio">Calcio</option>
+    <option value="basket">Basket</option>
+    <option value="tennis">Tennis</option>
+    <option value="pallavolo">Pallavolo</option>
+    <option value="nuoto">Nuoto</option>
+    <option value="atletica">Atletica</option>
+    <option value="ciclismo">Ciclismo</option>
+    <option value="sci">Sci</option>
+    <option value="rugby">Rugby</option>
+    <option value="bodybuilding">Bodybuilding</option>
+    <option value="arti_marziali">Arti Marziali</option>
+    <option value="boxe">Boxe</option>
+    <option value="golf">Golf</option>
+    <option value="pattinaggio">Pattinaggio</option>
+    <option value="baseball">Baseball</option>
+    <option value="hockey">Hockey</option>
+    <option value="surf">Surf</option>
+    <option value="equitazione">Equitazione</option>
+  </select>
+
+
+
+
   <input type="button" value="Stampa" onclick="stampa()"><br><br>
 
   <div id="dest"></div>
 </body>
+
 </html>
