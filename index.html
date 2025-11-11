@@ -1,111 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
-  <style>
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
 
-    th,
-    td {
-      padding: 8px;
-    }
-  </style>
-  <script>
-    function stampa() {
-      var nome = document.getElementById("nome").value;
-      var cognome = document.getElementById("cognome").value;
-      var indirizzo = document.getElementById("indirizzo").value;
-      var citta = document.getElementById("citta").value;
-      var maschio = document.getElementById("maschio").value;
-      var femmina = document.getElementById("femmina").value;
+    <style>
+        body {
+            background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
 
-      var liceo_classico = document.getElementById("liceo_classico").value;
-      var liceo_scientifico = document.getElementById("liceo_scientifico").value;
-      var liceo_linguistico = document.getElementById("liceo_linguistico").value;
-      var istituto_tecnico = document.getElementById("istituto_tecnico").value;
-      var istituto_tecnico = document.getElementById("istituto_tecnico").value;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-      var provincia = document.getElementById("provincia").value;
-      var sport = document.getElementById("sport").value;
+        thead {
+            background-color: #2f80ed;
+            color: white;
+        }
 
+        thead th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: bold;
+        }
 
-      var risultato = "<p>" + nome + " " + cognome + ", " + indirizzo + ", " + citta + "</p>";
-      document.getElementById("dest").innerHTML = risultato;
-    }
-  </script>
+        tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        a {
+            color: #2f80ed;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1c60b3;
+        }
+
+        tbody tr:hover {
+            background-color: #f5faff;
+        }
+    </style>
 </head>
 
-<body bgcolor="white">
-  <input type="text" id="nome" placeholder="Nome"><br>
-  <input type="text" id="cognome" placeholder="Cognome"><br>
-  <input type="text" id="indirizzo" placeholder="Indirizzo"><br>
-  <input type="text" id="citta" placeholder="Città"><br>
- <input type="radio" name="sesso" id="maschio" value="maschio"> Maschio<br>
-  <input type="radio" name="sesso" id="femmina" value="femmina"> Femmina<br><br>
+<body>
+    <table>
+        <tr>
+            <th>Portfolio lavori TPS</th>
 
-  <input type="checkbox" name="diplomi" id="liceo_classico" value="liceo_classico"> Liceo Classico<br>
-  <input type="checkbox" name="diplomi" id="liceo_scientifico" value="liceo_scientifico"> Liceo Scientifico<br>
-  <input type="checkbox" name="diplomi" id="liceo_linguistico" value="liceo_linguistico"> Liceo Linguistico<br>
-  <input type="checkbox" name="diplomi" id="istituto_tecnico" value="istituto_tecnico"> Istituto Tecnico<br>
-  <input type="checkbox" name="diplomi" id="istituto_professionale" value="istituto_professionale"> Istituto Professionale<br>
-  
-  <select name="provincia" id="provincia">
-    <option value="AQ">AQ</option>
-    <option value="PZ">PZ</option>
-    <option value="MT">MT</option>
-    <option value="CZ">CZ</option>
-    <option value="SA">SA</option>
-    <option value="AV">AV</option>
-    <option value="MO">MO</option>
-    <option value="UD">UD</option>
-    <option value="FR">FR</option>
-    <option value="GE">GE</option>
-    <option value="MI">MI</option>
-    <option value="BG">BG</option>
-    <option value="AN">AN</option>
-    <option value="CB">CB</option>
-    <option value="TO">TO</option>
-    <option value="AL">AL</option>
-    <option value="LE">LE</option>
-    <option value="FG">FG</option>
-    <option value="SS">SS</option>
-    <option value="PA">PA</option>
-    <option value="CT">CT</option>
-  </select>
+        </tr>
+        <tr>
+            <th>Anagrafica</th>
+            <td>Anagrafica1.0.html</td>
+            <td>Anagrafica2.0.html</td>
+            <td>Anagrafica3.0.html</td>
 
-  <select name="sport" id="sport">
-    <option value="calcio">Calcio</option>
-    <option value="basket">Basket</option>
-    <option value="tennis">Tennis</option>
-    <option value="pallavolo">Pallavolo</option>
-    <option value="nuoto">Nuoto</option>
-    <option value="atletica">Atletica</option>
-    <option value="ciclismo">Ciclismo</option>
-    <option value="sci">Sci</option>
-    <option value="rugby">Rugby</option>
-    <option value="bodybuilding">Bodybuilding</option>
-    <option value="arti_marziali">Arti Marziali</option>
-    <option value="boxe">Boxe</option>
-    <option value="golf">Golf</option>
-    <option value="pattinaggio">Pattinaggio</option>
-    <option value="baseball">Baseball</option>
-    <option value="hockey">Hockey</option>
-    <option value="surf">Surf</option>
-    <option value="equitazione">Equitazione</option>
-  </select>
-
-
-
-
-  <input type="button" value="Stampa" onclick="stampa()"><br><br>
-
-  <div id="dest"></div>
+        </tr>
+    </table>
 </body>
 
 </html>
