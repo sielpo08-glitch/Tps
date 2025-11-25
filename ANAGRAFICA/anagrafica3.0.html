@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anagrafica2.0</title>
+  <title>Anagrafica3.0</title>
 
   <style>
     table,
@@ -19,10 +19,81 @@
     td {
       padding: 8px;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e4ec);
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    select {
+      width: 300px;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      border-color: #3934db;
+      outline: none;
+    }
+
+    label {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 6px;
+    }
+
+    input[type="button"] {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    input[type="button"]:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    div {
+      margin-top: 15px;
+      padding: 10px;
+      background: #ecf0f1;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    select[multiple] {
+      height: auto;
+      min-height: 100px;
+      border-radius: 6px;
+    }
   </style>
   <script>
 
-    const anagrafica ={
+    const anagrafica = {
       nome: "",
       cognome: "",
       indirizzo: "",
@@ -71,10 +142,25 @@
       }
       if (sportSelezionati == "") { sportSelezionati = "Nessuno"; }
       let risultato = "<p>" + nome + ",  " + cognome + ", " + indirizzo + ", " + citta + ", " + provincia + ", " + sportSelezionati + "</p>";
-      document.getElementById("1").innerHTML = risultato;
-      document.getElementById("2").innerHTML = "Hai selezionato: " + sesso;
-      document.getElementById("3").innerHTML = testo;
+
+       let tabella =
+        "<table border='1' cellpadding='5'>" +
+        "<tr><th>Nome</th><th>Cognome</th><th>Indirizzo</th><th>Città</th>" +
+        "<th>Sesso</th><th>Diplomi</th><th>Provincia</th><th>Sport</th></tr>" +
+
+        "<tr><td>" + nome +
+        "</td><td>" + cognome +
+        "</td><td>" + indirizzo +
+        "</td><td>" + citta +
+        "</td><td>" + sesso +
+        "</td><td>" + testo +
+        "</td><td>" + provincia +
+        "</td><td>" + sportSelezionati +
+        "</td></tr></table>";
+
+    document.getElementById("risultato").innerHTML = tabella;
     }
+    
   </script>
 </head>
 
@@ -115,15 +201,8 @@
   </select><br><br>
 
   <input type="button" value="Stampa" onclick="stampa()"><br><br>
-  <div id="1"></div>
-  <div id="2"></div>
-  <div id="3"></div>
-
-
-
-
-
+  <div id="risultato"></div>
 </body>
 
-
 </html>
+  
