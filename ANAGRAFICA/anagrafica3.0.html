@@ -91,77 +91,69 @@
       border-radius: 6px;
     }
   </style>
-  <script>
+ <script>
+    const anagrafica = {};
 
-    const anagrafica = {
-      nome: "",
-      cognome: "",
-      indirizzo: "",
-      citta: "",
-      sesso: "",
-      diplomi: [],
-      provincia: "",
-      sport: []
-    }
     function stampa() {
-      let nome = document.getElementById("nome").value;
-      let cognome = document.getElementById("cognome").value;
-      let indirizzo = document.getElementById("indirizzo").value;
-      let citta = document.getElementById("citta").value;
+      anagrafica.nome = document.getElementById("nome").value;
+      anagrafica.cognome = document.getElementById("cognome").value;
+      anagrafica.indirizzo = document.getElementById("indirizzo").value;
+      anagrafica.citta = document.getElementById("citta").value;
 
-      let sesso = " ";
       if (document.getElementById("maschio").checked) {
-        sesso = "Maschio";
+        anagrafica.sesso = "Maschio";
       } else if (document.getElementById("femmina").checked) {
-        sesso = "Femmina";
+        anagrafica.sesso = "Femmina";
       } else {
-        sesso = "Non selezionato";
+        anagrafica.sesso = "Non selezionato";
       }
 
       let checkboxes = document.getElementsByName("diploma");
-      let testo = "";
-
-      for (var i = 0; i < checkboxes.length; i++) {
+      let diplomi = [];
+      for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
-          testo += checkboxes[i].value + " ,  ";
+          diplomi.push(checkboxes[i].value);
         }
       }
-
-      if (testo == "") {
-        testo = "Nessun Diploma selezionato";
+      if (diplomi.length > 0) {
+        anagrafica.diplomi = diplomi.join(", ");
+      } else {
+        anagrafica.diplomi = "Nessun Diploma selezionato";
       }
 
-      let provincia = document.getElementById("provincia").value;
+      anagrafica.provincia = document.getElementById("provincia").value;
+
       let sportOptions = document.getElementById("sport").options;
-      let sportSelezionati = "";
-      for (var i = 0; i < sportOptions.length; i++) {
+      let sportSelezionati = [];
+      for (let i = 0; i < sportOptions.length; i++) {
         if (sportOptions[i].selected) {
-          if (sportSelezionati !== "") { sportSelezionati += ", "; }
-          sportSelezionati += sportOptions[i].value;
+          sportSelezionati.push(sportOptions[i].value);
         }
       }
-      if (sportSelezionati == "") { sportSelezionati = "Nessuno"; }
-      let risultato = "<p>" + nome + ",  " + cognome + ", " + indirizzo + ", " + citta + ", " + provincia + ", " + sportSelezionati + "</p>";
+      if (sportSelezionati.length > 0) {
+        anagrafica.sport = sportSelezionati.join(", ");
+      } else {
+        anagrafica.sport = "Nessuno";
+      }
 
-       let tabella =
-        "<table border='1' cellpadding='5'>" +
+      let tabella =
+        "<table>" +
         "<tr><th>Nome</th><th>Cognome</th><th>Indirizzo</th><th>Città</th>" +
         "<th>Sesso</th><th>Diplomi</th><th>Provincia</th><th>Sport</th></tr>" +
-
-        "<tr><td>" + nome +
-        "</td><td>" + cognome +
-        "</td><td>" + indirizzo +
-        "</td><td>" + citta +
-        "</td><td>" + sesso +
-        "</td><td>" + testo +
-        "</td><td>" + provincia +
-        "</td><td>" + sportSelezionati +
+        "<tr><td>" + anagrafica.nome +
+        "</td><td>" + anagrafica.cognome +
+        "</td><td>" + anagrafica.indirizzo +
+        "</td><td>" + anagrafica.citta +
+        "</td><td>" + anagrafica.sesso +
+        "</td><td>" + anagrafica.diplomi +
+        "</td><td>" + anagrafica.provincia +
+        "</td><td>" + anagrafica.sport +
         "</td></tr></table>";
 
-    document.getElementById("risultato").innerHTML = tabella;
+      document.getElementById("risultato").innerHTML = tabella;
     }
-    
   </script>
+
 </head>
 
 <body bgcolor="white">
@@ -206,3 +198,4 @@
 
 </html>
   
+
