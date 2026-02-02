@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Anagrafica Unica</title>
+
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { margin: 5px 0; padding: 8px; width: 250px; }
+    button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid black; padding: 8px; text-align: center; }
+    th { background-color: #ddd; }
+  </style>
+
+  <script>
+    function aggiungi() {
+      let nome = document.getElementById("nome").value;
+      let cognome = document.getElementById("cognome").value;
+      let eta = document.getElementById("eta").value;
+      let citta = document.getElementById("citta").value;
+      let provincia = document.getElementById("provincia").value;
+      let nazione = document.getElementById("nazione").value;
+
+      if (!nome || !cognome || !eta) {
+        alert("Compila almeno nome, cognome ed età!");
+        return;
+      }
+
+      let persona = {
+        nome: nome,
+        cognome: cognome,
+        eta: eta,
+        citta: citta,
+        provincia: provincia,
+        nazione: nazione
+      };
+
+      let elenco = JSON.parse(localStorage.getItem("anagrafica")) || [];
+      elenco.push(persona);
+      localStorage.setItem("anagrafica", JSON.stringify(elenco));
+
+      aggiornaTabella();
+
+      document.getElementById("nome").value = "";
+      document.getElementById("cognome").value = "";
+      document.getElementById("eta").value = "";
+      document.getElementById("citta").value = "";
+      document.getElementById("provincia").value = "";
+      document.getElementById("nazione").value = "";
+    }
+
+    function aggiornaTabella() {
+      let elenco = JSON.parse(localStorage.getItem("anagrafica")) || [];
+
+      let tab = "<table>";
+      tab += "<tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Città</th><th>Provincia</th><th>Nazione</th></tr>";
+
+      for (let p of elenco) {
+        tab += "<tr>" +
+          "<td>" + p.nome + "</td>" +
+          "<td>" + p.cognome + "</td>" +
+          "<td>" + p.eta + "</td>" +
+          "<td>" + p.citta + "</td>" +
+          "<td>" + p.provincia + "</td>" +
+          "<td>" + p.nazione + "</td>" +
+        "</tr>";
+      }
+
+      tab += "</table>";
+      document.getElementById("risultato").innerHTML = tab;
+    }
+
+    window.onload = aggiornaTabella;
+  </script>
+</head>
+
+<body>
+  <h2>Anagrafica Completa</h2>
+
+  <input type="text" id="nome" placeholder="Nome"><br>
+  <input type="text" id="cognome" placeholder="Cognome"><br>
+  <input type="number" id="eta" placeholder="Età"><br>
+  <input type="text" id="citta" placeholder="Città"><br>
+  <input type="text" id="provincia" placeholder="Provincia"><br>
+  <input type="text" id="nazione" placeholder="Nazione"><br>
+
+  <button onclick="aggiungi()">Aggiungi</button>
+
+  <div id="risultato"></div>
+</body>
+</html>
