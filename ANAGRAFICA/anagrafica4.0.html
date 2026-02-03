@@ -70,19 +70,6 @@
 
             aggiornaTabella();
 
-             elenco = JSON.parse(localStorage.getItem("anagrafica"));
-
-            if (elenco.length === 0) {
-                alert("Non ci sono righe da eliminare!");
-                return;
-            }
-
-            elenco.pop(); 
-
-            localStorage.setItem("anagrafica", JSON.stringify(elenco));
-
-            aggiornaTabella(); 
-
             document.getElementById("nome").value = "";
             document.getElementById("cognome").value = "";
             document.getElementById("eta").value = "";
@@ -111,6 +98,21 @@
 
             tab += "</table>";
             document.getElementById("risultato").innerHTML = tab;
+        }
+
+        function eliminaUltima() {
+            let elenco = JSON.parse(localStorage.getItem("anagrafica"));
+
+            if (elenco.length === 0) {
+                alert("Non ci sono righe da eliminare!");
+                return;
+            }
+
+            elenco.pop(); 
+
+            localStorage.setItem("anagrafica", JSON.stringify(elenco));
+
+            aggiornaTabella(); 
         }
 
 
