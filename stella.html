@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Stella</title>
+        <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #4d0808;
+        }
+
+        canvas {
+            border: 1px solid #461717;
+            background-color: #d4cece;
+        }
+
+        
+        </style>
+    </head>
+  <body >
+    <canvas id="c" width="200" height="200"></canvas>
+
+    <script>
+      const ctx = document.getElementById('c').getContext('2d');
+
+      ctx.beginPath();
+      ctx.arc(100, 100, 90, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(100, 20);
+      ctx.lineTo(120, 80);
+      ctx.lineTo(180, 80);
+      ctx.lineTo(130, 120);
+      ctx.lineTo(145, 175);
+      ctx.lineTo(100, 140);
+      ctx.lineTo(55, 175);
+      ctx.lineTo(70, 120);
+      ctx.lineTo(20, 80);
+      ctx.lineTo(80, 80);
+      ctx.closePath();
+
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+      ctx.stroke();
+    </script> 
+  </body>
+</html>
 
