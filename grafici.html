@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="1260" height="450" style="border:1px solid #000000;"></canvas>
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(30,0);//ordinata
+ctx.lineTo(30,450);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(25,30);//14
+ctx.lineTo(35,30);
+ctx.font = "10px Arial";
+ctx.fillText("14",10,30);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(25,60);//13
+ctx.lineTo(35,60);
+ctx.font = "10px Arial";
+ctx.fillText("13",10,60);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(25,120);//11
+ctx.lineTo(35,120);
+ctx.font = "10px Arial";
+ctx.fillText("11",10,120);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(25,150);//10
+ctx.lineTo(35,150);
+ctx.font = "10px Arial";
+ctx.fillText("10",10,150);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(25,180);//9
+ctx.lineTo(35,180);
+ctx.font = "10px Arial";
+ctx.fillText("9",10,180);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(0,420);//ascissa
+ctx.lineTo(1230,420);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(130,415);//Gennaio
+ctx.lineTo(130,425);
+ctx.font = "10px Arial";
+ctx.fillText("Gennaio",110,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(230,415);//Febbraio
+ctx.lineTo(230,425);
+ctx.font = "10px Arial";
+ctx.fillText("Febbraio",210,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(330,415);//Marzo
+ctx.lineTo(330,425);
+ctx.font = "10px Arial";
+ctx.fillText("Marzo",310,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(430,415);//Aprile
+ctx.lineTo(430,425);
+ctx.font = "10px Arial";
+ctx.fillText("Aprile",410,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(530,415);//Maggio
+ctx.lineTo(530,425);
+ctx.font = "10px Arial";
+ctx.fillText("Maggio",510,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(630,415);//Giugno
+ctx.lineTo(630,425);
+ctx.font = "10px Arial";
+ctx.fillText("Giugno",610,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(730,415);//Luglio
+ctx.lineTo(730,425);
+ctx.font = "10px Arial";
+ctx.fillText("Luglio",710,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(830,415);//Agosto
+ctx.lineTo(830,425);
+ctx.font = "10px Arial";
+ctx.fillText("Agosto",810,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(930,415);//Settembre
+ctx.lineTo(930,425);
+ctx.font = "10px Arial";
+ctx.fillText("Settembre",910,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(1030,415);//Ottobre
+ctx.lineTo(1030,425);
+ctx.font = "10px Arial";
+ctx.fillText("Ottobre",1010,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(1130,415);//Novembre
+ctx.lineTo(1130,425);
+ctx.font = "10px Arial";
+ctx.fillText("Novembre",1110,435);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(1230,415);//Dicembre
+ctx.lineTo(1230,425);
+ctx.font = "10px Arial";
+ctx.fillText("Dicembre",1210,435);
+ctx.stroke();
+ctx.beginPath();
+const coordinate = [
+    {x: 130,
+     y: 120},
+    {x: 230,
+     y: 180},
+    {x: 330,
+     y: 150},
+    {x: 430,
+     y: 150},
+    {x: 530,
+     y: 120},
+    {x: 630,
+     y: 60},
+    {x: 730,
+     y: 30},
+    {x: 830,
+     y: 60},
+    {x: 930,
+     y: 180},
+    {x: 1030,
+     y: 150},
+    {x: 1130,
+     y: 60},
+    {x: 1230,
+     y: 60}
 
+]
+
+for (let i=0; i<12; i++) {
+   ctx.lineTo(coordinate[i].x,coordinate[i].y);
+}
+ctx.stroke();
+</script>
+    <button onclick="document.location='index.html'"> ==> Go back </button>
