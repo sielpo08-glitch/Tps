@@ -1,1 +1,138 @@
 
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Anagrafica 5.0</title>
+</head>
+<body>
+
+<h3>Inserisci i tuoi dati</h3>
+
+Nome: <input type="text" id="nome"><br><br>
+Cognome: <input type="text" id="cognome"><br><br>
+Età: <input type="number" id="eta"><br><br>
+Città: <input type="text" id="citta"><br><br>
+Provincia: <input type="text" id="provincia"><br><br>
+CAP: <input type="text" id="cap"><br><br>
+Nazione: <input type="text" id="nazione"><br><br>
+Email: <input type="text" id="email"><br><br>
+Telefono: <input type="text" id="telefono"><br><br>
+
+<input type="button" value="Salva Dati" onclick="salvaDati()">
+<input type="button" value="Azzera Dati" onclick="azzeraDati()">
+
+<h3>Dati Salvati</h3>
+<div id="tabella"></div>
+
+<script>
+let collection = JSON.parse(localStorage.getItem('collection'));
+
+function salvaDati() {
+
+    const persona = {
+        nome: document.getElementById("nome").value,
+        cognome: document.getElementById("cognome").value,
+        eta: document.getElementById("eta").value,
+        citta: document.getElementById("citta").value,
+        provincia: document.getElementById("provincia").value,
+        cap: document.getElementById("cap").value,
+        nazione: document.getElementById("nazione").value,
+        email: document.getElementById("email").value,
+        telefono: document.getElementById("telefono").value
+    };
+
+    let regexNome = /^[A-Za-z]+$/;
+    let regexCognome = /^[A-Za-z]+$/;
+    let regexCAP = /^[0-9]{5}$/;
+    let regexCitta = /^[A-Za-z\s]+$/;
+    let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let regexTelefono = /^[0-9]{8,15}$/;
+
+    if (!regexNome.test(persona.nome)) {
+        alert("Nome non valido");
+        return;
+    }
+
+    if (!regexCognome.test(persona.cognome)) {
+        alert("Cognome non valido");
+        return;
+    }
+
+    if (!regexCAP.test(persona.cap)) {
+        alert("CAP non valido");
+        return;
+    }
+
+    if (!regexCitta.test(persona.citta)) {
+        alert("Città non valida");
+        return;
+    }
+
+    if (!regexEmail.test(persona.email)) {
+        alert("Email non valida");
+        return;
+    }
+
+    if (!regexTelefono.test(persona.telefono)) {
+        alert("Telefono non valido");
+        return;
+    }
+
+    collection.push(persona);
+    localStorage.setItem('collection', JSON.stringify(collection));
+
+    mostraTabella();
+    pulisciForm();
+}
+
+function mostraTabella() {
+    if (collection.length === 0) {
+        document.getElementById("tabella").innerHTML = "<p>Nessun dato salvato.</p>";
+        return;
+    }
+
+    let html = "<table border='1' cellpadding='5'><tr>" +
+        "<th>Nome</th><th>Cognome</th><th>Età</th><th>Città</th><th>Provincia</th><th>CAP</th><th>Nazione</th><th>Email</th><th>Telefono</th></tr>";
+
+    for (let i = 0; i < collection.length; i++) {
+        let p = collection[i];
+        html += "<tr><td>" + p.nome +
+            "</td><td>" + p.cognome +
+            "</td><td>" + p.eta +
+            "</td><td>" + p.citta +
+            "</td><td>" + p.provincia +
+            "</td><td>" + p.cap +
+            "</td><td>" + p.nazione +
+            "</td><td>" + p.email +
+            "</td><td>" + p.telefono +
+            "</td></tr>";
+    }
+
+    html += "</table>";
+    document.getElementById("tabella").innerHTML = html;
+}
+
+function pulisciForm() {
+    document.getElementById("nome").value = "";
+    document.getElementById("cognome").value = "";
+    document.getElementById("eta").value = "";
+    document.getElementById("citta").value = "";
+    document.getElementById("provincia").value = "";
+    document.getElementById("cap").value = "";
+    document.getElementById("nazione").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("telefono").value = "";
+}
+
+function azzeraDati() {
+    localStorage.removeItem('collection');
+    collection = [];
+    mostraTabella();
+}
+
+mostraTabella();
+</script>
+
+</body>
+</html>
