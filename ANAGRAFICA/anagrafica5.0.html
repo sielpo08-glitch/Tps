@@ -114,7 +114,11 @@ Telefono: <input type="text" id="telefono"><br><br>
 <div id="tabella"></div>
 
 <script>
-let collection = JSON.parse(localStorage.getItem('collection'));
+let collection = [];
+
+if (localStorage.getItem('collection')) {
+    collection = JSON.parse(localStorage.getItem('collection'));
+}
 
 function salvaDati() {
 
