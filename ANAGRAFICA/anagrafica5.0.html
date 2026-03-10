@@ -179,10 +179,11 @@ function salvaDati() {
 }
 
 function mostraTabella() {
-    if (collection.length === 0) {
+    if (!collection || collection.length === 0) {
         document.getElementById("tabella").innerHTML = "<p>Nessun dato salvato.</p>";
         return;
     }
+
 
     let html = "<table border='1' cellpadding='5'><tr>" +
         "<th>Nome</th><th>Cognome</th><th>Età</th><th>Città</th><th>Provincia</th><th>CAP</th><th>Nazione</th><th>Email</th><th>Telefono</th></tr>";
